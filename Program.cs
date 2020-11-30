@@ -1,74 +1,38 @@
 ﻿using System;
-using System.Threading;
 
-namespace Gymnastics
+namespace Salary
 {
     class Program
     {
         static void Main(string[] args)
         {
-            string country = Console.ReadLine();
-            string item = Console.ReadLine();
-            double ribbon = 0;
-           
-            double grade = 0;
-            
-            if (country == "Bulgaria")
+            int tab = int.Parse(Console.ReadLine());
+            int salary = int.Parse(Console.ReadLine());
+            for (int i = 1; i <= tab; i++)
             {
-                if (item == "ribbon")
+                string name = Console.ReadLine();
+                switch (name)
                 {
-                    ribbon = 9.600 + 9.400;
+                    case "Facebook":
 
+                        salary -= 150;
+                        break;
+                    case "Instagram":
+                        salary -= 100;
+                        break;
+                    case "Reddit":
+                        salary -= 100;
+                        break;
                 }
-                else if (item == "hoop")
+                if (salary <= 0)
                 {
-                    ribbon = 9.550 + 9.750;
+                    Console.WriteLine("You have lost your salary.");
+                    break;
                 }
-                else if(item == "rope")
-                {
-                    ribbon = 9.500 + 9.400;
-
-                }
+                
             }
-            else if (country == "Russia")
-            {
-                if (item == "ribbon")
-                {
-                    ribbon = 9.100 + 9.400;
-
-                }
-                else if (item == "hoop")
-                {
-                    ribbon = 9.300 + 9.800;
-                }
-                else if (item == "rope")
-                {
-                    ribbon = 9.000 + 9.600;
-                }
-            }
-            else if (country == "Italy")
-            {
-                if (item == "ribbon")
-                {
-                    ribbon = 9.200 + 9.500;
-                }
-                else if (item == "hoop")
-                {
-                    ribbon = 9.450 + 9.350;
-                }
-                else if (item == "rope")
-                {
-                    ribbon = 9.700 + 9.150;
-                }
-            }
-            grade = 20 - ribbon;
-            double newGrade = (grade / 20) * 100;
-         
-           
-            Console.WriteLine($"The team of {country} get {ribbon:f3} on {item}.");
-            Console.WriteLine($"{newGrade:f2}%");
-
-
+            if (salary > 0)
+            Console.WriteLine($"{salary}");
         }
     }
 }
